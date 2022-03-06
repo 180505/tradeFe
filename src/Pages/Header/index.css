@@ -1,0 +1,46 @@
+.headerContainer {
+  height: 50px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 10rem;
+  overflow: hidden;
+}
+.addLogo {
+  width: max-content;
+  height: 80px;
+  margin-left: -100px;
+  margin-top: 8px;
+}
+.pointer {
+  cursor: pointer;
+}
+.margin-left-20 {
+  margin-left: 20px;
+}
+.hover-1890ff:hover {
+  color: #1890ff;
+}
+
+.color-1890ff-bold {
+  font-weight: 600;
+  color: #1890ff;
+}
+.hover-0d6bc4:hover {
+  color: #0d6bc4;
+}
+.color-1890ff {
+  color: #1890ff;
+}
+.notice {
+  width: 450px;
+  margin-left: 50px;
+  font-size: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color:red;
+  cursor: pointer;
+  font-weight:bold;
+  margin-top: 15px;
+}

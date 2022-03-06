@@ -1,0 +1,49 @@
+.goodItem {
+  border-bottom: 1px solid #ebebeb;
+  /* height: 100px; */
+  padding: 5px;
+  display: flex;
+  margin-bottom: 5px;
+}
+.gooditem-pic {
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  background-color: gray;
+  cursor: pointer;
+}
+.ml-20 {
+  margin-left: 20px;
+}
+.text-title {
+  font-size: medium;
+  color: #1890ff;
+  cursor: pointer;
+}
+.text-desc {
+  font-size: small;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.goods-info {
+  font-size: 10px;
+  opacity: 0.8;
+}
+/* .goods-info span{
+   color: #1890FF;
+} */
+.mr-30 {
+  margin-right: 30px;
+}
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.text-price {
+  color: red;
+  font-weight: 600;
+  font-size: 20px;
+}
