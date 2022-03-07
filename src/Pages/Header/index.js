@@ -1,4 +1,4 @@
-import { Tooltip } from "antd";
+import { message, Tooltip } from "antd";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./index.css";
@@ -7,6 +7,10 @@ class Header extends Component {
   //     super(props);
   // }
   state = {};
+  handleExit = () => {
+    // 退出逻辑
+    message.success('已成功退出')
+  }
   render() {
     return (
       <div className="headerContainer">
@@ -32,7 +36,7 @@ class Header extends Component {
           </span>
           <span className=" pointer hover-1890ff margin-left-20"><Link to='/login'>登录</Link></span>
           <span className="pointer margin-left-20 hover-1890ff"><Link to='/register'>注册</Link></span>
-          <span className="pointer margin-left-20 hover-1890ff">退出</span>
+          <span className="pointer margin-left-20 hover-1890ff" onClick={this.handleExit}>退出</span>
         </div>
       </div>
     );

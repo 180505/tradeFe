@@ -1,13 +1,22 @@
 import React, { Component } from "react";
 import { Button, Card, Input, Radio, Pagination } from "antd";
 import GoodItem from "./components/GoodItem";
+import { SortType } from "../../common/enum";
 import "./index.css";
 
 class Content extends Component {
   // constructor(props) {
   //     super(props);
   // }
-  state = {};
+  state = {
+    type:'all',
+    price:'all',
+    oldType:'all',
+    cities:'all',
+    pageNum:'',
+    pageSize:10,
+    sortType:SortType.default
+  };
   oldType = [
     {
       label: "全部",
@@ -101,15 +110,36 @@ class Content extends Component {
     },
   ];
 
+  onChange = e => {
+    console.log(e.target.value);
+  }
+
+  selectDefault = () => {
+    this.setState({sortType: SortType.default})
+  }
+
+  selectLatest = () => {
+    this.setState({sortType: SortType.latest})
+  }
+
+  selectAscend = () => {
+    this.setState({sortType: SortType.priceAscend})
+  }
+
+  selectDescend = () => {
+    this.setState({sortType: SortType.priceDescend})
+  }
+
   renderCardTitle() {
     return (
       <div
         className="text-10"
         style={{ display: "flex", alignItems: "center" }}
       >
-        <div className="pointer hover-1890ff mr-10">最新发布</div>
-        <div className="pointer hover-1890ff mr-10">价格升序</div>
-        <div className="pointer hover-1890ff">价格降序</div>
+        <div className="pointer hover-1890ff mr-10" onClick={this.selectDefault} style={this.state.sortType===SortType.default?{color:'#1890FF'}:{}}>默认排序</div>
+        <div className="pointer hover-1890ff mr-10" onClick={this.selectLatest} style={this.state.sortType===SortType.latest?{color:'#1890FF'}:{}}>最新发布</div>
+        <div className="pointer hover-1890ff mr-10" onClick={this.selectAscend} style={this.state.sortType===SortType.priceAscend?{color:'#1890FF'}:{}}>价格升序</div>
+        <div className="pointer hover-1890ff" onClick={this.selectDescend} style={this.state.sortType===SortType.priceDescend?{color:'#1890FF'}:{}}>价格降序</div>
         <div
           style={{ marginLeft: "auto", display: "flex", alignItems: "center" }}
         >
@@ -129,7 +159,7 @@ class Content extends Component {
             <label style={{ marginRight: "10px" }} className="align-center">
               <div>分类：</div>
             </label>
-            <Radio.Group defaultValue="all" buttonStyle="solid" size="small">
+            <Radio.Group defaultValue={this.state.type} buttonStyle="solid" size="small" onChange={this.onChange}>
               <Radio.Button value="all">全部</Radio.Button>
               <Radio.Button value="gt">吉他</Radio.Button>
               <Radio.Button value="gz">古筝</Radio.Button>
@@ -166,7 +196,7 @@ class Content extends Component {
             <label style={{ marginRight: "10px" }} className="align-center">
               <div>价格：</div>
             </label>
-            <Radio.Group defaultValue="all" buttonStyle="solid" size="small">
+            <Radio.Group defaultValue={this.state.price} buttonStyle="solid" size="small" onChange={this.onChange}>
               <Radio.Button value="all">全部</Radio.Button>
               <Radio.Button value="less-100">100元以下</Radio.Button>
               <Radio.Button value="s-100-500">100-500元</Radio.Button>
@@ -183,11 +213,12 @@ class Content extends Component {
               <div>新旧：</div>
             </label>
             <Radio.Group
-              defaultValue="all"
+              defaultValue={this.state.oldType}
               buttonStyle="solid"
               size="small"
               options={this.oldType}
               optionType="button"
+              onChange={this.onChange}
             ></Radio.Group>
           </div>
           <div style={{ display: "flex", marginTop: "2px" }}>
@@ -195,11 +226,12 @@ class Content extends Component {
               <div>地区：</div>
             </label>
             <Radio.Group
-              defaultValue="all"
+              defaultValue={this.state.cities}
               buttonStyle="solid"
               size="small"
               options={this.cities}
               optionType="button"
+              onChange={this.onChange}
             ></Radio.Group>
           </div>
         </Card>
