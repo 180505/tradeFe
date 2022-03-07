@@ -1,0 +1,37 @@
+.loginContainer{
+    height: 100vh;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.returnIndex{
+    font-size: medium;
+    position: absolute;
+    left: 20px;
+    top: 10px;
+}
+.login {
+    width: 600px;
+    height: max-content;
+}
+.loginCard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50%;
+    transform: translateY(-50%);
+}
+.mb-20{
+    margin-bottom: 20px;
+}
+.mb-30{
+    margin-bottom: 30px;
+}
+.text-center{
+    text-align: center;
+}
+.login_title{
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
